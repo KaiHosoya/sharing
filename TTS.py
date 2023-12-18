@@ -1,7 +1,8 @@
 from pathlib import Path
 from openai import OpenAI
 
-client = OpenAI(api_key="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")
+#OpenAIのAPIkeyを設定
+client = OpenAI(api_key="")
 
 speech_file_path = Path(__file__).parent / "/Users/hosotanikai/Documents/TextToSpeech/CNBC/20231212.mp3"
 response = client.audio.speech.create(
