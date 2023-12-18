@@ -30,8 +30,8 @@ def transcribe_audio(file_path, output_file):
     :param file_path: 音声ファイルのパス
     :return: 文字起こしの結果
     """
-    # OpenAIクライアントの初期化
-    client = openai.OpenAI(api_key="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")
+    # OpenAIクライアントの初期化、APIkeyの設定
+    client = openai.OpenAI(api_key="")
 
     # 音声ファイルを開く
     with open(file_path, 'rb') as audio_file:
@@ -48,9 +48,11 @@ def transcribe_audio(file_path, output_file):
 
 
 # 例: 音声ファイルを10分ごとに分割し、文字起こしを行う
-audio_chunks = split_audio("/Users/hosotanikai/Documents/Transcription/TechCrunch/2023:12:18/Johann Kerbrat Robinhood.mp3", 600)
+# your_file_url: 文字起こししたいファイルのパスを指定
+audio_chunks = split_audio("your_file_url", 600)
 # transcriptions = [transcribe_audio(chunk) for chunk in audio_chunks]
 
 for i, chunk in enumerate(audio_chunks):
-    output_file = f"/Users/hosotanikai/Documents/Transcription/TechCrunch/2023:12:18/transcription_{i}.txt"
+    #文字起こしされたファイルの格納場所を指定
+    output_file = f"/Users/〜/transcription_{i}.txt"
     transcribe_audio(chunk, output_file)
